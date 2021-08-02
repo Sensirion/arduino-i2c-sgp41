@@ -3,11 +3,9 @@
 This is the Sensirion SGP41 library for Arduino using the
 modules I2C interface.
 
-TODO: DRIVER_GENERATOR Add image of sensor / eval kit as images/sgp41.jpg
-[<center><img src="images/sgp41.jpg" width="300px"></center>](TODO: DRIVER_GENERATOR add url to the eval kit)
+[<center><img src="images/SGP41.jpg" width="300px"></center>](https://www.sensirion.com/en/environmental-sensors/gas-sensors/sgp41)
 
-Click [here](TODO: DRIVER_GENERATOR Add url to the eval kit) to learn more about the SGP41
-sensor and the SGP41 Evaluation Kit Board.
+Click [here](https://www.sensirion.com/en/environmental-sensors/gas-sensors/sgp41) to learn more about the SGP41 sensor.
 
 
 # Installation
@@ -34,11 +32,10 @@ Note: Installation via the Arduino Library Manager is coming soon.
    The pinout of the SGP41 Sensor board can be found in the
    data sheet.
 
-	* **VDD** of the SEK-SGP41 to the **xV** of your Arduino board TODO: DRIVER_GENERATOR Add correct voltage
+	* **VDD** of the SEK-SGP41 to the **3.3V** of your Arduino board
 	* **GND** of the SEK-SGP41 to the **GND** of your Arduino board
 	* **SCL** of the SEK-SGP41 to the **SCL** of your Arduino board
 	* **SDA** of the SEK-SGP41 to the **SDA** of your Arduino board
-	* **SEL** of the SEK-SGP41 to another **GND** of your Arduino board
 
 2. Open the `exampleUsage` sample project within the Arduino IDE
 
