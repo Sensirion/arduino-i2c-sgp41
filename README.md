@@ -3,7 +3,7 @@
 This is the Sensirion SGP41 library for Arduino using the
 modules I2C interface.
 
-[<center><img src="images/SGP41.jpg" width="300px"></center>](https://www.sensirion.com/en/environmental-sensors/gas-sensors/sgp41)
+[<center><img src="images/SGP41.png" width="300px"></center>](https://www.sensirion.com/en/environmental-sensors/gas-sensors/sgp41)
 
 Click [here](https://www.sensirion.com/en/environmental-sensors/gas-sensors/sgp41) to learn more about the SGP41 sensor.
 
