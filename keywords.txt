@@ -11,9 +11,9 @@ SensirionI2CSgp41	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-conditioning	KEYWORD2
-measureRaw	KEYWORD2
-measureTest	KEYWORD2
+executeConditioning	KEYWORD2
+measureRawSignals	KEYWORD2
+executeSelfTest	KEYWORD2
 turnHeaterOff	KEYWORD2
 getSerialNumber	KEYWORD2
 #######################################
