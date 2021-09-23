@@ -1,7 +1,7 @@
 /*
- * I2C-Generator: 0.2.0
+ * I2C-Generator: 0.3.0
  * Yaml Version: 0.1.0
- * Template Version: local build
+ * Template Version: 0.7.0-62-g3d691f9
  */
 /*
  * Copyright (c) 2021, Sensirion AG
@@ -67,10 +67,27 @@ void setup() {
         errorToString(error, errorMessage, 256);
         Serial.println(errorMessage);
     } else {
-        Serial.print("SerialNumber: ");
-        Serial.print(serialNumber[0]);
-        Serial.print(serialNumber[1]);
-        Serial.println(serialNumber[2]);
+        Serial.print("SerialNumber:");
+        Serial.print("0x");
+        for (size_t i = 0; i < serialNumberSize; i++) {
+            uint16_t value = serialNumber[i];
+            Serial.print(value < 4096 ? "0" : "");
+            Serial.print(value < 256 ? "0" : "");
+            Serial.print(value < 16 ? "0" : "");
+            Serial.print(value, HEX);
+        }
+        Serial.println();
+    }
+
+    uint16_t testResult;
+    error = sgp41.executeSelfTest(testResult);
+    if (error) {
+        Serial.print("Error trying to execute executeSelfTest(): ");
+        errorToString(error, errorMessage, 256);
+        Serial.println(errorMessage);
+    } else if (testResult != 0xD400) {
+        Serial.print("executeSelfTest failed with error: ");
+        Serial.println(testResult);
     }
 }
 
@@ -86,15 +103,15 @@ void loop() {
 
     if (conditioning_s > 0) {
         // During NOx conditioning (10s) SRAW NOx will remain 0
-        error = sgp41.conditioning(defaultRh, defaultT, srawVoc);
+        error = sgp41.executeConditioning(defaultRh, defaultT, srawVoc);
         conditioning_s--;
     } else {
         // Read Measurement
-        error = sgp41.measureRaw(defaultRh, defaultT, srawVoc, srawNox);
+        error = sgp41.measureRawSignals(defaultRh, defaultT, srawVoc, srawNox);
     }
 
     if (error) {
-        Serial.print("Error trying to execute measureRaw(): ");
+        Serial.print("Error trying to execute measureRawSignals(): ");
         errorToString(error, errorMessage, 256);
         Serial.println(errorMessage);
     } else {
