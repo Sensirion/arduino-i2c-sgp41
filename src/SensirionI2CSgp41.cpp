@@ -155,8 +155,7 @@ uint16_t SensirionI2CSgp41::turnHeaterOff() {
     return error;
 }
 
-uint16_t SensirionI2CSgp41::getSerialNumber(uint16_t serialNumber[],
-                                            uint8_t serialNumberSize) {
+uint16_t SensirionI2CSgp41::getSerialNumber(uint16_t serialNumber[]) {
     uint16_t error;
     uint8_t buffer[9];
     SensirionI2CTxFrame txFrame =

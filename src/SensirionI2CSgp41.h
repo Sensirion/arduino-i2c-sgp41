@@ -131,7 +131,7 @@ class SensirionI2CSgp41 {
      *
      * @return 0 on success, an error code otherwise
      */
-    uint16_t getSerialNumber(uint16_t serialNumber[], uint8_t serialNumberSize);
+    uint16_t getSerialNumber(uint16_t serialNumber[]);
 
   private:
     TwoWire* _i2cBus = nullptr;

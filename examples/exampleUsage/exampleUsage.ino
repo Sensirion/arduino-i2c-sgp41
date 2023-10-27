@@ -57,10 +57,10 @@ void setup() {
 
     sgp41.begin(Wire);
 
-    uint16_t serialNumber[3];
     uint8_t serialNumberSize = 3;
+    uint16_t serialNumber[serialNumberSize];
 
-    error = sgp41.getSerialNumber(serialNumber, serialNumberSize);
+    error = sgp41.getSerialNumber(serialNumber);
 
     if (error) {
         Serial.print("Error trying to execute getSerialNumber(): ");
