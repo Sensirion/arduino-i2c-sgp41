@@ -49,6 +49,14 @@ Note: Installation via the Arduino Library Manager is coming soon.
    Plotter` via the `Tools` menu to observe the measurement values. Note that
    the `Baud Rate` in the corresponding window has to be set to `115200 baud`.
 
+# Conditioning
+
+After each restart of the sensor or when the hotplates have been switched off, the conditioning command must
+be called from idle mode. The conditioning heats the hotplate of the NOx pixel to a different temperature compared
+to the measurement mode enabling a faster switch-on thereafter.
+
+It is recommended to execute the conditioning for 10s, but **10s must not be exceeded** to avoid damage to the sensing material.
+
 # Contributing
 
 **Contributions are welcome!**

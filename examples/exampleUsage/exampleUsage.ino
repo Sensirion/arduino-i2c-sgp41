@@ -40,7 +40,9 @@
 
 SensirionI2CSgp41 sgp41;
 
-// time in seconds needed for NOx conditioning
+// Time in seconds needed for NOx conditioning
+// WARNING: To avoid damage to the sensing material the conditioning must not
+// exceed 10s!
 uint16_t conditioning_s = 10;
 
 void setup() {
