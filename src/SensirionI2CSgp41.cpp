@@ -54,9 +54,9 @@ uint16_t SensirionI2CSgp41::executeConditioning(uint16_t defaultRh,
                                                 uint16_t defaultT,
                                                 uint16_t& srawVoc) {
     uint16_t error;
-    uint8_t buffer[8];
+    uint8_t buffer[16];
     SensirionI2CTxFrame txFrame =
-        SensirionI2CTxFrame::createWithUInt16Command(0x2612, buffer, 8);
+        SensirionI2CTxFrame::createWithUInt16Command(0x2612, buffer, 16);
 
     error = txFrame.addUInt16(defaultRh);
     error |= txFrame.addUInt16(defaultT);
@@ -72,7 +72,7 @@ uint16_t SensirionI2CSgp41::executeConditioning(uint16_t defaultRh,
 
     delay(50);
 
-    SensirionI2CRxFrame rxFrame(buffer, 8);
+    SensirionI2CRxFrame rxFrame(buffer, 16);
     error = SensirionI2CCommunication::receiveFrame(SGP41_I2C_ADDRESS, 3,
                                                     rxFrame, *_i2cBus);
     if (error) {
@@ -88,9 +88,9 @@ uint16_t SensirionI2CSgp41::measureRawSignals(uint16_t relativeHumidity,
                                               uint16_t& srawVoc,
                                               uint16_t& srawNox) {
     uint16_t error;
-    uint8_t buffer[8];
+    uint8_t buffer[16];
     SensirionI2CTxFrame txFrame =
-        SensirionI2CTxFrame::createWithUInt16Command(0x2619, buffer, 8);
+        SensirionI2CTxFrame::createWithUInt16Command(0x2619, buffer, 16);
 
     error = txFrame.addUInt16(relativeHumidity);
     error |= txFrame.addUInt16(temperature);
@@ -106,7 +106,7 @@ uint16_t SensirionI2CSgp41::measureRawSignals(uint16_t relativeHumidity,
 
     delay(50);
 
-    SensirionI2CRxFrame rxFrame(buffer, 8);
+    SensirionI2CRxFrame rxFrame(buffer, 16);
     error = SensirionI2CCommunication::receiveFrame(SGP41_I2C_ADDRESS, 6,
                                                     rxFrame, *_i2cBus);
     if (error) {
